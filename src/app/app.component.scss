@@ -1,0 +1,29 @@
+.menu {
+  width: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+ul li {
+  display: inline-block;
+  margin: 0 5px;
+  white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+  &.active {
+    color: red;
+  }
+}
