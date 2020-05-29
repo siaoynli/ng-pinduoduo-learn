@@ -1,14 +1,18 @@
-<div class="menu">
+<div class="menu" [ngStyle]="{ 'background-color': backgroundColor }">
   <ul>
     <li *ngFor="let menu of menus; let i = index">
       <a
+        [ngStyle]="{ color: currentIndex == i ? activeColor : defaultColor }"
         routerLink=""
-        [class.active]="currentIndex == i"
         (click)="handleSelection(i)"
         >{{ menu.title }}
       </a>
 
-      <span *ngIf="currentIndex === i" class="indicator"></span>
+      <span
+        *ngIf="currentIndex === i"
+        class="indicator"
+        [ngStyle]="{ background: activeColor }"
+      ></span>
     </li>
   </ul>
 </div>

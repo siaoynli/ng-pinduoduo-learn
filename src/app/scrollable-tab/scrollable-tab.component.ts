@@ -11,13 +11,16 @@ export interface TopMenu {
   styleUrls: ['./scrollable-tab.component.scss'],
 })
 export class ScrollableTabComponent implements OnInit {
+  currentIndex: number = -1;
+  @Input() menus: TopMenu[] = [];
+  @Input() backgroundColor: string = '#fff';
+  @Input() defaultColor: string = '#666';
+  @Input() activeColor: string = 'red';
+  @Output() tabSelect = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
-
-  currentIndex: number = -1;
-  @Input() menus: TopMenu[] = [];
-  @Output() tabSelect = new EventEmitter();
 
   handleSelection(index: number): void {
     this.currentIndex = index;

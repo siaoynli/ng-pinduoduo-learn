@@ -26,14 +26,9 @@ ul li {
 
   a {
     text-decoration: none;
-    color: #666;
-    &.active {
-      color: red;
-    }
   }
 
   .indicator {
-    background: brown;
     height: 2px;
     width: 2em;
     margin-top: 2px;
