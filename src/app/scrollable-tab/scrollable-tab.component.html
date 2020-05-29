@@ -1,0 +1,14 @@
+<div class="menu">
+  <ul>
+    <li *ngFor="let menu of menus; let i = index">
+      <a
+        routerLink=""
+        [class.active]="currentIndex == i"
+        (click)="handleSelection(i)"
+        >{{ menu.title }}
+      </a>
+
+      <span *ngIf="currentIndex === i" class="indicator"></span>
+    </li>
+  </ul>
+</div>
