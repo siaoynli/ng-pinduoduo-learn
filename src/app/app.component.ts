@@ -42,6 +42,18 @@ export class AppComponent {
       link: 'http://www.bilibili.com',
       caption: 'b站2',
     },
+    {
+      imgUrl:
+        'http://hzwphotos.hangzhou.com.cn/uploads/images/2020-04-22/4feadc90554541e8206d949ab564473c.jpg',
+      link: 'http://www.bilibili.com',
+      caption: 'b站3',
+    },
+    {
+      imgUrl:
+        'http://hzwphotos.hangzhou.com.cn/uploads/images/2020-05-26/sXnMOVtw7B3UcOm0SRC0rnYLrqyE3IPtjfkp6ZJA.jpeg',
+      link: 'http://www.bilibili.com',
+      caption: 'b站4',
+    },
   ];
 
   handleSelect(index: number) {
