@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { TopMenu } from './scrollable-tab';
+import { TopMenu } from './components/scrollable-tab';
+import { ImageSlider } from './components/image-slider/image-slider.component';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,21 @@ export class AppComponent {
     { title: '母婴', link: '' },
     { title: '美妆', link: '' },
     { title: '家具', link: '' },
+  ];
+
+  imageSliders: ImageSlider[] = [
+    {
+      imgUrl:
+        'http://hzwphotos.hangzhou.com.cn/uploads/images/2020-04-22/9ea3438080b229b010efa3a82e9a0fed.jpeg',
+      link: 'http://www.bilibili.com',
+      caption: 'b站',
+    },
+    {
+      imgUrl:
+        'http://hzwphotos.hangzhou.com.cn/uploads/images/2020-03-03/59877fe0805ea130537b8a321f457cb0.jpg',
+      link: 'http://www.bilibili.com',
+      caption: 'b站2',
+    },
   ];
 
   handleSelect(index: number) {
