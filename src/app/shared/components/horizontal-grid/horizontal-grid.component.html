@@ -1,7 +1,11 @@
-<p>
-  it's works111
+<div appGridItem *ngFor="let item of channels">
+  <!-- 指令 -->
+  <img
+    [src]="item.icon"
+    [itemWidth]="'2rem'"
+    [fitModel]="'cover'"
+    appGridItemImage
+  />
 
-  {{ result }}
-</p>
-
-<button (click)="handleClick()">点击</button>
+  <span appGridItemTitle>{{ item.title }}</span>
+</div>
