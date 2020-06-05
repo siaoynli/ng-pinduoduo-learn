@@ -4,24 +4,32 @@
  * @Github: http://github.com/siaoynli
  * @Date: 2020-06-03 15:24:51
  * @LastEditors: lixiaoyun
- * @LastEditTime: 2020-06-03 16:08:01
+ * @LastEditTime: 2020-06-05 15:26:43
  * @Description:
  */
 
-import { Directive, Renderer2, ElementRef, Input, OnInit } from '@angular/core';
+import {
+  Directive,
+  Renderer2,
+  ElementRef,
+  Input,
+  OnInit,
+  HostBinding,
+  HostListener,
+} from '@angular/core';
 
 @Directive({
   selector: '[appGridItemImage]',
 })
-export class GridItemImageDirective implements OnInit {
-  @Input() itemWidth: string = '2rem';
-  @Input() fitModel: string = 'cover';
-  constructor(private elr: ElementRef, private rd2: Renderer2) {}
+export class GridItemImageDirective {
+  @HostBinding('style.grid-area') area = 'image';
+  @HostBinding('style.width') @Input() itemWidth: string = '2rem';
+  @HostBinding('style.height') height = this.itemWidth;
+  @HostBinding('style.object-fit') @Input() fitModel: string = 'cover';
 
-  ngOnInit(): void {
-    this.rd2.setStyle(this.elr.nativeElement, 'grid-area', 'image');
-    this.rd2.setStyle(this.elr.nativeElement, 'width', this.itemWidth);
-    this.rd2.setStyle(this.elr.nativeElement, 'height', this.itemWidth);
-    this.rd2.setStyle(this.elr.nativeElement, 'object-fit', this.fitModel);
+  //两个参数，事件名,参数
+  @HostListener('click', ['$event.target'])
+  handlerClick(ev) {
+    console.log(ev);
   }
 }

@@ -13,58 +13,31 @@ export interface Channel {
   styleUrls: ['./horizontal-grid.component.css'],
 })
 export class HorizontalGridComponent implements OnInit {
-  @Input() channels: Channel[] = [
-    {
-      id: 1,
-      icon: './assets/images/01.png',
-      title: '限时秒杀',
-      link: '',
-    },
-    {
-      id: 2,
-      icon: './assets/images/02.png',
-      title: '断码清仓',
-      link: '',
-    },
-    {
-      id: 3,
-      icon: './assets/images/03.png',
-      title: '品牌馆',
-      link: '',
-    },
-    {
-      id: 4,
-      icon: './assets/images/04.png',
-      title: '多多果园',
-      link: '',
-    },
-    {
-      id: 5,
-      icon: './assets/images/05.png',
-      title: '断码清仓',
-      link: '',
-    },
-    {
-      id: 6,
-      icon: './assets/images/06.png',
-      title: '断码清仓',
-      link: '',
-    },
-    {
-      id: 7,
-      icon: './assets/images/07.png',
-      title: '断码清仓',
-      link: '',
-    },
-    {
-      id: 8,
-      icon: './assets/images/08.png',
-      title: '断码清仓',
-      link: '',
-    },
-  ];
+  @Input() cols = 8;
+  @Input() displayCols = 5;
+
+  sliderMargin = '0';
 
   constructor() {}
 
   ngOnInit() {}
+
+  public get scrollable(): boolean {
+    return this.cols > this.displayCols;
+  }
+
+  public get templateRows(): string {
+    return `minmax(auto,max-content)`;
+  }
+
+  public get templateColumns(): string {
+    //计算每一项的宽度，重复总列数
+    return `repeat(${this.cols},calc((100vw)/${this.displayCols})`;
+  }
+
+  handleScroll(ev) {
+    //滚动百分比
+    this.sliderMargin = `0
+    ${(100 * ev.target.scrollLeft) / ev.target.scrollWidth}%`;
+  }
 }

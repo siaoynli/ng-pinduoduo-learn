@@ -4,19 +4,23 @@
  * @Github: http://github.com/siaoynli
  * @Date: 2020-06-03 15:25:43
  * @LastEditors: lixiaoyun
- * @LastEditTime: 2020-06-03 15:58:00
+ * @LastEditTime: 2020-06-05 15:18:25
  * @Description:
  */
 
-import { Directive, ElementRef, Renderer2, OnInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Renderer2,
+  OnInit,
+  HostBinding,
+  Input,
+} from '@angular/core';
 
 @Directive({
   selector: '[appGridItemTitle]',
 })
-export class GridItemTitleDirective implements OnInit {
-  constructor(private elr: ElementRef, private rd2: Renderer2) {}
-
-  ngOnInit(): void {
-    this.rd2.setStyle(this.elr.nativeElement, 'grid-area', 'title');
-  }
+export class GridItemTitleDirective {
+  @HostBinding('style.grid-area') area = 'title';
+  @HostBinding('style.font-size') @Input() itemTitle: string = '0.5rem';
 }
